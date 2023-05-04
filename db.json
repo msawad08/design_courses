@@ -1,0 +1,84 @@
+{
+  "courses": [
+    {
+      "name": "UI Design Fundamentals",
+      "description": "Learn the basics of UI design, including color theory, typography, and layout.",
+      "rating": 4.5,
+      "time": "2 hours",
+      "seatsAvailable": 50,
+      "price": "$49.99",
+      "noOfClasses": 4,
+      "category": "UI/UX"
+    },
+    {
+      "name": "Basic Graphic Design Principles",
+      "description": "Learn the fundamentals of graphic design, including composition, typography, and color theory.",
+      "rating": 4.2,
+      "time": "3 hours",
+      "seatsAvailable": 30,
+      "price": "$69.99",
+      "noOfClasses": 6,
+      "category": "Basic UI"
+    },
+    {
+      "name": "User Experience Design",
+      "description": "Discover how to create intuitive and engaging user experiences, including user research, prototyping, and testing.",
+      "rating": 4.7,
+      "time": "4 hours",
+      "seatsAvailable": 20,
+      "price": "$99.99",
+      "noOfClasses": 8,
+      "category": "UX"
+    },
+    {
+      "name": "Coding for Designers",
+      "description": "Learn the basics of coding for designers, including HTML, CSS, and JavaScript.",
+      "rating": 4.0,
+      "time": "3 hours",
+      "seatsAvailable": 40,
+      "price": "$59.99",
+      "noOfClasses": 6,
+      "category": "Coding"
+    },
+    {
+      "name": "Advanced User Interface Design",
+      "description": "Take your UI design skills to the next level with advanced topics like motion design, accessibility, and responsive design.",
+      "rating": 4.8,
+      "time": "5 hours",
+      "seatsAvailable": 15,
+      "price": "$149.99",
+      "noOfClasses": 10,
+      "category": "UI/UX"
+    },
+    {
+      "name": "Design Thinking",
+      "description": "Learn how to approach design problems using a human-centered, iterative approach.",
+      "rating": 4.3,
+      "time": "3 hours",
+      "seatsAvailable": 25,
+      "price": "$79.99",
+      "noOfClasses": 6,
+      "category": "UX"
+    },
+    {
+      "name": "Web Design Basics",
+      "description": "Learn the basics of designing for the web, including layout, typography, and responsive design.",
+      "rating": 4.1,
+      "time": "2 hours",
+      "seatsAvailable": 35,
+      "price": "$49.99",
+      "noOfClasses": 4,
+      "category": "Basic UI"
+    },
+    {
+      "name": "JavaScript for Designers",
+      "description": "Learn how to use JavaScript to add interactivity and animation to your designs.",
+      "rating": 4.4,
+      "time": "3 hours",
+      "seatsAvailable": 30,
+      "price": "$69.99",
+      "noOfClasses": 6,
+      "category": "Coding"
+    }
+  ]
+}
