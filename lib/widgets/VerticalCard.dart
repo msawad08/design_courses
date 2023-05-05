@@ -5,31 +5,38 @@ import 'package:flutter/material.dart';
 
 class VerticalCard extends StatelessWidget {
 
-  final Course course;
   const VerticalCard({
-    super.key, required this.course,
+    super.key, required this.course, required this.onSelect,
   });
+
+  final Course course;
+  final dynamic onSelect;
+
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
-        color: Theme.of(context).colorScheme.tertiary,
-      ),
-      padding: const EdgeInsets.all(10.0),
-      height: 160,
-      width: 120,
-      child: Column(
-        children: [
-          CourseCardTitle(course: course),
-          CourseCardRating(course: course),
+    return TextButton(
 
-          Image.asset(
-            "assets/images/img 1.jpg",
-            height: 80,
-          )
-        ],
+      onPressed: onSelect,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          color: Theme.of(context).colorScheme.tertiary,
+        ),
+        padding: const EdgeInsets.all(10.0),
+        height: 160,
+        width: 120,
+        child: Column(
+          children: [
+            CourseCardTitle(course: course),
+            CourseCardRating(course: course),
+
+            Image.asset(
+              "assets/images/img 1.jpg",
+              height: 80,
+            )
+          ],
+        ),
       ),
     );
   }

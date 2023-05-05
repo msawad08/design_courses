@@ -3,19 +3,10 @@ import 'package:design_course/widgets/course_rating.dart';
 import 'package:flutter/material.dart';
 
 class CourseDetail extends StatelessWidget {
-  CourseDetail({Key? key}) : super(key: key);
+  const CourseDetail({Key? key, required this.course, required this.onClose}) : super(key: key);
 
-  final Course course = Course.fromJson({
-    "name": "Web Design Basics",
-    "description":
-        "Learn the basics of designing for the web, including layout, typography, and responsive design.",
-    "rating": 4.1,
-    "time": "2 hours",
-    "seatsAvailable": 35,
-    "price": "\$49.99",
-    "noOfClasses": 4,
-    "category": "Basic UI"
-  });
+  final Course course;
+  final dynamic onClose;
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +80,7 @@ class CourseDetail extends StatelessWidget {
                     Row(
                       children: [
                         TextButton(
-                            onPressed: () {},
+                            onPressed: onClose,
                             style: ButtonStyle(
                                 side: MaterialStatePropertyAll<BorderSide>(
                                     BorderSide(color: tertiaryTextColor)),

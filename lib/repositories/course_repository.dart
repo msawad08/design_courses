@@ -72,5 +72,19 @@ class CourseRepository extends BaseNetworkRepository {
     }
   }
 
+  void getCourseById(int id) {
+    controller.add(NetworkStatus.loading);
+    final response = await _client.get(Uri.parse(_baseUrl));
+    if (response.statusCode == 200) {
+      final List<dynamic> jsonList = json.decode(response.body);
+      return jsonList.map((json) => Course.fromJson(json)).toList();
+    } else {
+      errorMessage = "Failed to load courses";
+      controller.add(NetworkStatus.failed);
+      return null;
+      // throw Exception('Failed to load courses');
+    }
+  }
+
 
 }

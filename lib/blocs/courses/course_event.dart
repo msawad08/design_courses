@@ -25,3 +25,9 @@ class SearchCoursesEvent extends CourseEvent {
 
   const SearchCoursesEvent(this.query);
 }
+
+class GetCourseByIdEvent extends CourseEvent {
+  final int id;
+
+  const GetCourseByIdEvent(this.id);
+}

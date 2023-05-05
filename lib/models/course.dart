@@ -15,6 +15,7 @@ class Course with _$Course {
     required String price,
     required int noOfClasses,
     required String category,
+    required int id,
   }) = _Course;
 
   factory Course.fromJson(Map<String, Object?> json)

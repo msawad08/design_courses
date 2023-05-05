@@ -8,7 +8,8 @@
       "seatsAvailable": 50,
       "price": "$49.99",
       "noOfClasses": 4,
-      "category": "UI/UX"
+      "category": "UI/UX",
+      "id" : 1
     },
     {
       "name": "Basic Graphic Design Principles",
@@ -18,7 +19,8 @@
       "seatsAvailable": 30,
       "price": "$69.99",
       "noOfClasses": 6,
-      "category": "Basic UI"
+      "category": "Basic UI",
+      "id" : 2
     },
     {
       "name": "User Experience Design",
@@ -28,7 +30,8 @@
       "seatsAvailable": 20,
       "price": "$99.99",
       "noOfClasses": 8,
-      "category": "UX"
+      "category": "UX",
+      "id" : 3
     },
     {
       "name": "Coding for Designers",
@@ -38,7 +41,8 @@
       "seatsAvailable": 40,
       "price": "$59.99",
       "noOfClasses": 6,
-      "category": "Coding"
+      "category": "Coding",
+      "id" : 4
     },
     {
       "name": "Advanced User Interface Design",
@@ -48,7 +52,8 @@
       "seatsAvailable": 15,
       "price": "$149.99",
       "noOfClasses": 10,
-      "category": "UI/UX"
+      "category": "UI/UX",
+      "id" : 5
     },
     {
       "name": "Design Thinking",
@@ -58,7 +63,8 @@
       "seatsAvailable": 25,
       "price": "$79.99",
       "noOfClasses": 6,
-      "category": "UX"
+      "category": "UX",
+      "id" : 6
     },
     {
       "name": "Web Design Basics",
@@ -68,7 +74,8 @@
       "seatsAvailable": 35,
       "price": "$49.99",
       "noOfClasses": 4,
-      "category": "Basic UI"
+      "category": "Basic UI",
+      "id" : 7
     },
     {
       "name": "JavaScript for Designers",
@@ -78,7 +85,8 @@
       "seatsAvailable": 30,
       "price": "$69.99",
       "noOfClasses": 6,
-      "category": "Coding"
+      "category": "Coding",
+      "id" : 8
     }
   ]
 }

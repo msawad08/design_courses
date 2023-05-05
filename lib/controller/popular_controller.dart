@@ -21,13 +21,11 @@ class PopularController extends StatelessWidget {
                 CourseBloc(courseRepository: CourseRepository()),
       child: BlocConsumer<CourseBloc, CourseState>(
         listener: (context, state){
-            print(state);
             if(state.status == NetworkStatus.unknown){
                 context.read<CourseBloc>().add(LoadPopularCoursesEvent());
             }
         },
           builder: (context, state) {
-            print(state);
         // if (state.status == NetworkStatus.loaded &&
         //     state.categories.isNotEmpty && state.selectedCategory.isNotEmpty) {
           return PopularView( courses: state.courses,);

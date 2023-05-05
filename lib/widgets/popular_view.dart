@@ -1,3 +1,4 @@
+import 'package:design_course/controller/course_card_controller.dart';
 import 'package:design_course/models/course.dart';
 import 'package:design_course/widgets/VerticalCard.dart';
 import 'package:design_course/widgets/course_card_rating.dart';
@@ -26,7 +27,7 @@ class PopularView extends StatelessWidget {
             spacing: 20.0,
             children: [
               ...courses.map((course) =>
-              VerticalCard(course: course),
+              CourseCardController(course: course, cardType: CourseCardType.vertical,),
               )
             ],
           )
