@@ -23,9 +23,9 @@ mixin _$Course {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   double get rating => throw _privateConstructorUsedError;
-  Duration get duration => throw _privateConstructorUsedError;
+  String get time => throw _privateConstructorUsedError;
   int get seatsAvailable => throw _privateConstructorUsedError;
-  double get price => throw _privateConstructorUsedError;
+  String get price => throw _privateConstructorUsedError;
   int get noOfClasses => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
 
@@ -43,9 +43,9 @@ abstract class $CourseCopyWith<$Res> {
       {String name,
       String description,
       double rating,
-      Duration duration,
+      String time,
       int seatsAvailable,
-      double price,
+      String price,
       int noOfClasses,
       String category});
 }
@@ -66,7 +66,7 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
     Object? name = null,
     Object? description = null,
     Object? rating = null,
-    Object? duration = null,
+    Object? time = null,
     Object? seatsAvailable = null,
     Object? price = null,
     Object? noOfClasses = null,
@@ -85,10 +85,10 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double,
-      duration: null == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as Duration,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
       seatsAvailable: null == seatsAvailable
           ? _value.seatsAvailable
           : seatsAvailable // ignore: cast_nullable_to_non_nullable
@@ -96,7 +96,7 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       noOfClasses: null == noOfClasses
           ? _value.noOfClasses
           : noOfClasses // ignore: cast_nullable_to_non_nullable
@@ -119,9 +119,9 @@ abstract class _$$_CourseCopyWith<$Res> implements $CourseCopyWith<$Res> {
       {String name,
       String description,
       double rating,
-      Duration duration,
+      String time,
       int seatsAvailable,
-      double price,
+      String price,
       int noOfClasses,
       String category});
 }
@@ -139,7 +139,7 @@ class __$$_CourseCopyWithImpl<$Res>
     Object? name = null,
     Object? description = null,
     Object? rating = null,
-    Object? duration = null,
+    Object? time = null,
     Object? seatsAvailable = null,
     Object? price = null,
     Object? noOfClasses = null,
@@ -158,10 +158,10 @@ class __$$_CourseCopyWithImpl<$Res>
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double,
-      duration: null == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as Duration,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
       seatsAvailable: null == seatsAvailable
           ? _value.seatsAvailable
           : seatsAvailable // ignore: cast_nullable_to_non_nullable
@@ -169,7 +169,7 @@ class __$$_CourseCopyWithImpl<$Res>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       noOfClasses: null == noOfClasses
           ? _value.noOfClasses
           : noOfClasses // ignore: cast_nullable_to_non_nullable
@@ -189,7 +189,7 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
       {required this.name,
       required this.description,
       required this.rating,
-      required this.duration,
+      required this.time,
       required this.seatsAvailable,
       required this.price,
       required this.noOfClasses,
@@ -205,11 +205,11 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
   @override
   final double rating;
   @override
-  final Duration duration;
+  final String time;
   @override
   final int seatsAvailable;
   @override
-  final double price;
+  final String price;
   @override
   final int noOfClasses;
   @override
@@ -217,7 +217,7 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Course(name: $name, description: $description, rating: $rating, duration: $duration, seatsAvailable: $seatsAvailable, price: $price, noOfClasses: $noOfClasses, category: $category)';
+    return 'Course(name: $name, description: $description, rating: $rating, time: $time, seatsAvailable: $seatsAvailable, price: $price, noOfClasses: $noOfClasses, category: $category)';
   }
 
   @override
@@ -228,7 +228,7 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('description', description))
       ..add(DiagnosticsProperty('rating', rating))
-      ..add(DiagnosticsProperty('duration', duration))
+      ..add(DiagnosticsProperty('time', time))
       ..add(DiagnosticsProperty('seatsAvailable', seatsAvailable))
       ..add(DiagnosticsProperty('price', price))
       ..add(DiagnosticsProperty('noOfClasses', noOfClasses))
@@ -244,8 +244,7 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.rating, rating) || other.rating == rating) &&
-            (identical(other.duration, duration) ||
-                other.duration == duration) &&
+            (identical(other.time, time) || other.time == time) &&
             (identical(other.seatsAvailable, seatsAvailable) ||
                 other.seatsAvailable == seatsAvailable) &&
             (identical(other.price, price) || other.price == price) &&
@@ -257,8 +256,8 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, description, rating,
-      duration, seatsAvailable, price, noOfClasses, category);
+  int get hashCode => Object.hash(runtimeType, name, description, rating, time,
+      seatsAvailable, price, noOfClasses, category);
 
   @JsonKey(ignore: true)
   @override
@@ -279,9 +278,9 @@ abstract class _Course implements Course {
       {required final String name,
       required final String description,
       required final double rating,
-      required final Duration duration,
+      required final String time,
       required final int seatsAvailable,
-      required final double price,
+      required final String price,
       required final int noOfClasses,
       required final String category}) = _$_Course;
 
@@ -294,11 +293,11 @@ abstract class _Course implements Course {
   @override
   double get rating;
   @override
-  Duration get duration;
+  String get time;
   @override
   int get seatsAvailable;
   @override
-  double get price;
+  String get price;
   @override
   int get noOfClasses;
   @override

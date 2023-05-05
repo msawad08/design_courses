@@ -1,4 +1,6 @@
-import 'package:design_course/widgets/category_bar.dart';
+import 'package:design_course/controller/category_controller.dart';
+import 'package:design_course/widgets/category_view.dart';
+import 'package:design_course/widgets/popular_view.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
@@ -8,6 +10,7 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: NestedScrollView(
+
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverAppBar(
@@ -17,7 +20,8 @@ class Dashboard extends StatelessWidget {
                 pinned: true,
                 flexibleSpace: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
-                    return constraints.biggest.height == kToolbarHeight ?
+
+                    return constraints.biggest.height == MediaQuery.of(context).viewPadding.top + kToolbarHeight ?
                         AppBar(
                           title: const Text("Design Course"),
                         )
@@ -60,8 +64,10 @@ class Dashboard extends StatelessWidget {
         },
         body: Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            CategoryBar(),
+            CategoryController(),
+            PopularView(),
           ],
         ),
       ),

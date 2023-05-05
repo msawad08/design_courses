@@ -10,9 +10,9 @@ class Course with _$Course {
     required String name,
     required String description,
     required double rating,
-    required Duration duration,
+    required String time,
     required int seatsAvailable,
-    required double price,
+    required String price,
     required int noOfClasses,
     required String category,
   }) = _Course;
