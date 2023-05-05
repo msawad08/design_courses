@@ -49,12 +49,13 @@ class CourseRepository extends BaseNetworkRepository {
 
   }
 
-  Future<void> getPopularCourses(String searchTerm) async {
+  Future<void> getPopularCourses() async {
     final resp = await  fetchCourses();
     if(resp != null){
-      final filteredCourses = courses.where((course) =>
-      course.rating <= 4.5);
+      final filteredCourses = resp.where((course) =>
+      course.rating >= 3);
       courses = filteredCourses.toList();
+      courses.sort((a, b)=> ((b.rating - a.rating) * 100).toInt());
       controller.add(NetworkStatus.loaded);
     }
   }

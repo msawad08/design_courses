@@ -25,7 +25,7 @@ class CategoryController extends StatelessWidget {
 
         // if (state.status == NetworkStatus.loaded &&
         //     state.categories.isNotEmpty && state.selectedCategory.isNotEmpty) {
-          return CategoryView(categories: state.categories, courses: state.courseState.courses,);
+          return CategoryView(categories: state.categories, courses: state.courseState.courses, selectedCategory: state.selectedCategory,);
         return Container();
       }),
     );

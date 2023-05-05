@@ -22,7 +22,8 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
   {
     on<CourseChangeEvent>(_onCourseStatusChange);
     on<LoadCoursesEvent>(_onLoadCourse);
-    // on<SearchCoursesEvent>(_onSearchCourse);
+    on<SearchCoursesEvent>(_onSearchCourse);
+    on<LoadPopularCoursesEvent>(_onLoadPopularCourse);
     _networkStatusSubscription = courseRepository.status.listen(
           (status) => add(CourseChangeEvent(status: status, error: courseRepository.errorMessage, courses: courseRepository.courses)),
     );
@@ -50,6 +51,11 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
   _onSearchCourse(SearchCoursesEvent event,
       Emitter<CourseState> emit){
     courseRepository.searchCourses(event.query);
+  }
+
+  _onLoadPopularCourse(LoadPopularCoursesEvent event,
+      Emitter<CourseState> emit){
+    courseRepository.getPopularCourses();
   }
 
 

@@ -18,6 +18,8 @@ class CourseChangeEvent extends CourseEvent {
 
 class LoadCoursesEvent extends CourseEvent {}
 
+class LoadPopularCoursesEvent extends CourseEvent {}
+
 class SearchCoursesEvent extends CourseEvent {
   final String query;
 
