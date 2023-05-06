@@ -12,12 +12,13 @@ class Option{
 
 class SelectionView extends StatelessWidget {
   const SelectionView({
-    super.key, required this.options, this.selectedValue, this.onSelect,
+    super.key, required this.options, this.selectedValue, this.onSelect, required this.title,
   });
 
   final List<Option> options;
   final dynamic selectedValue;
   final dynamic onSelect;
+  final String title;
 
 
   @override
@@ -28,7 +29,7 @@ class SelectionView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Select Theme",
+            title,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(height: 10,),

@@ -57,12 +57,12 @@ class _CourseDetailControllerState extends State<CourseDetailController> {
       child: BlocConsumer<CourseBloc, CourseState>(
         listener: (context, state) {
           if (state.status == NetworkStatus.failed) {
-            if(state.errorMessage == "Course Not Found"){
+            if(state.errorMessage == "course_not_found"){
               showSnackBar(
                 context: context,
                 message: state.errorMessage,
                 onAction: () => onClose(),
-                actionLabel: "Go To Home"
+                actionLabel: "goto_home"
               );
             }else{
               showSnackBar(

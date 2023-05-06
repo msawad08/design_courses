@@ -4,12 +4,14 @@ import 'package:design_course/models/course.dart';
 import 'package:design_course/repositories/base_network_repository.dart';
 import 'package:design_course/utils/network_status.dart';
 
+
 import 'package:http/http.dart' as http;
 
 
 class CategoryRepository extends BaseNetworkRepository {
   final http.Client _client = http.Client();
-  final String _baseUrl = 'https://my-json-server.typicode.com/msawad08/design_courses/courses';
+
+  String get _baseUrl => 'https://my-json-server.typicode.com/msawad08/design_courses/courses';
   List<String> categories = [];
 
 
@@ -23,12 +25,12 @@ class CategoryRepository extends BaseNetworkRepository {
         final courses = jsonList.map((json) => Course.fromJson(json)).toList();
         categories = courses.map((course) => course.category).toSet().toList();
       } else {
-        errorMessage = "Failed to load course categories";
+        errorMessage = "category_fetch_failed";
         controller.add(NetworkStatus.failed);
         // throw Exception('Failed to load courses');
       }
     }catch(err){
-      errorMessage = "Failed to load course categories";
+      errorMessage = "category_fetch_failed";
       controller.add(NetworkStatus.failed);
     }
 

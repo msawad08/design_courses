@@ -12,7 +12,7 @@
       "id" : 1
     },
     {
-      "name": "Basic Graphic Design Principles",
+      "name": "Graphic Design Principles",
       "description": "Learn the fundamentals of graphic design, including composition, typography, and color theory.",
       "rating": 4.2,
       "time": "3 hours",
@@ -45,7 +45,7 @@
       "id" : 4
     },
     {
-      "name": "Advanced User Interface Design",
+      "name": "Advanced UI Design",
       "description": "Take your UI design skills to the next level with advanced topics like motion design, accessibility, and responsive design.",
       "rating": 4.8,
       "time": "5 hours",
@@ -87,6 +87,138 @@
       "noOfClasses": 6,
       "category": "Coding",
       "id" : 8
+    },
+    {
+      "name": "Responsive Web Design",
+      "description": "Learn how to design websites that adapt to different screen sizes and devices, including best practices for responsive design.",
+      "rating": 4.5,
+      "time": "5 hours",
+      "seatsAvailable": 15,
+      "price": "$129.99",
+      "noOfClasses": 10,
+      "category": "Basic UI",
+      "id" : 9
+    },
+    {
+      "name": "Interaction Design",
+      "description": "Discover the principles of interaction design, including user flows, wireframing, and designing for different states.",
+      "rating": 4.2,
+      "time": "2.5 hours",
+      "seatsAvailable": 35,
+      "price": "$49.99",
+      "noOfClasses": 5,
+      "category": "UX",
+      "id" : 10
     }
-  ]
+  ],
+  "courses_ar":
+  [{
+    "name": "أساسيات تصميم واجهات المستخدم",
+    "description": "تعلّم أساسيات تصميم واجهات المستخدم، بما في ذلك نظرية الألوان والخطوط والتخطيط.",
+    "rating": 4.5,
+    "time": "ساعتان",
+    "seatsAvailable": 50,
+    "price": "49.99 دولار",
+    "noOfClasses": 4,
+    "category": "UI/UX",
+    "id" : 1
+  },
+    {
+      "name": "مبادئ تصميم الجرافيك الأساسية",
+      "description": "تعلّم أساسيات تصميم الجرافيك، بما في ذلك التركيب ونظرية الألوان والخطوط.",
+      "rating": 4.2,
+      "time": "3 ساعات",
+      "seatsAvailable": 30,
+      "price": "69.99 دولار",
+      "noOfClasses": 6,
+      "category": "Basic UI",
+      "id" : 2
+    },
+    {
+      "name": "تصميم تجربة المستخدم",
+      "description": "اكتشف كيفية إنشاء تجارب مستخدم مفهومة وجذابة، بما في ذلك البحث عن المستخدم، والنمذجة، والاختبار.",
+      "rating": 4.7,
+      "time": "4 ساعات",
+      "seatsAvailable": 20,
+      "price": "99.99 دولار",
+      "noOfClasses": 8,
+      "category": "UX",
+      "id" : 3
+    },
+    {
+      "name": "البرمجة للمصممين",
+      "description": "تعلّم أساسيات البرمجة للمصممين، بما في ذلك HTML وCSS وJavaScript.",
+      "rating": 4.0,
+      "time": "3 ساعات",
+      "seatsAvailable": 40,
+      "price": "59.99 دولار",
+      "noOfClasses": 6,
+      "category": "Coding",
+      "id" : 4
+    },
+    {
+      "name": "تصميم واجهات المستخدم المتقدمة",
+      "description": "ارفع مهارات تصميم واجهات المستخدم الخاصة بك إلى المستوى التالي مع المواضيع المتقدمة مثل تصميم الحركة والوصولية والتصميم الاستجابة.",
+      "rating": 4.8,
+      "time": "5 ساعات",
+      "seatsAvailable": 15,
+      "price": "149.99 دولار",
+      "noOfClasses": 10,
+      "category": "واجهات المستخدم / تجربة المستخدم",
+      "id" : 5
+    },{
+    "name": "التفكير التصميمي",
+    "description": "تعلم كيفية التعامل مع مشاكل التصميم باستخدام نهج مركز على الإنسان وتكراري.",
+    "rating": 4.3,
+    "time": "3 ساعات",
+    "seatsAvailable": 25,
+    "price": "$79.99",
+    "noOfClasses": 6,
+    "category": "UX",
+    "id" : 6
+  },
+    {
+      "name": "أساسيات تصميم الويب",
+      "description": "تعلم أساسيات التصميم للويب، بما في ذلك التخطيط والأنماط والتصميم الاستجابة.",
+      "rating": 4.1,
+      "time": "2 ساعة",
+      "seatsAvailable": 35,
+      "price": "$49.99",
+      "noOfClasses": 4,
+      "category": "Basic UI",
+      "id" : 7
+    },
+    {
+      "name": "JavaScript للمصممين",
+      "description": "تعلم كيفية استخدام JavaScript لإضافة التفاعلية والرسوم المتحركة لتصاميمك.",
+      "rating": 4.4,
+      "time": "3 ساعات",
+      "seatsAvailable": 30,
+      "price": "$69.99",
+      "noOfClasses": 6,
+      "category": "Coding",
+      "id" : 8
+    },{
+    "name": "تصميم الواجهات الاستجابية",
+    "description": "تعلم كيفية تصميم مواقع الويب التي تتكيف مع أحجام الشاشة والأجهزة المختلفة ، بما في ذلك أفضل الممارسات للتصميم الاستجابي.",
+    "rating": 4.5,
+    "time": "5 ساعات",
+    "seatsAvailable": 15,
+    "price": "$129.99",
+    "noOfClasses": 10,
+    "category": "Basic UI",
+    "id" : 9
+  },
+    {
+      "name": "تصميم التفاعل",
+      "description": "اكتشف مبادئ تصميم التفاعل ، بما في ذلك تدفقات المستخدم ، وإنشاء السلك الشائكي ، وتصميم حالات مختلفة.",
+      "rating": 4.2,
+      "time": "2.5 ساعات",
+      "seatsAvailable": 35,
+      "price": "$49.99",
+      "noOfClasses": 5,
+      "category": "UX",
+      "id" : 10
+    }
+    ]
 }

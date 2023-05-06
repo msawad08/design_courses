@@ -21,12 +21,12 @@ class CourseRepository extends BaseNetworkRepository {
         final List<dynamic> jsonList = json.decode(response.body);
         return jsonList.map((json) => Course.fromJson(json)).toList();
       } else {
-        errorMessage = "Failed to load courses";
+        errorMessage = "course_fetch_failed";
         controller.add(NetworkStatus.failed);
         // throw Exception('Failed to load courses');
       }
     }catch(error){
-      errorMessage = "Failed to load courses";
+      errorMessage = "course_fetch_failed";
       controller.add(NetworkStatus.failed);
     }
     return null;
@@ -77,20 +77,20 @@ class CourseRepository extends BaseNetworkRepository {
       final response = await _client.get(Uri.parse("$_baseUrl/$id"));
       print(response.statusCode);
       if (response.statusCode !=  200 && response.statusCode !=  404) {
-        errorMessage = "Failed to load courses";
+        errorMessage = "course_fetch_failed";
         controller.add(NetworkStatus.failed);
         return;
       }
       final jsonResp = json.decode(response.body);
       if(jsonResp.isEmpty) {
-        errorMessage = "Course Not Found";
+        errorMessage = "course_not_found";
         controller.add(NetworkStatus.failed);
         return;
       }
       courses = [Course.fromJson(jsonResp)];
       controller.add(NetworkStatus.loaded);
     }catch(error){
-        errorMessage = "Failed to load courses";
+        errorMessage = "course_fetch_failed";
         controller.add(NetworkStatus.failed);
     }
 

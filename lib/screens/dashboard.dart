@@ -5,6 +5,8 @@ import 'package:design_course/controller/profile_button_controller.dart';
 import 'package:design_course/controller/search_input_controller.dart';
 import 'package:design_course/widgets/SelectionView.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -35,7 +37,7 @@ class Dashboard extends StatelessWidget {
                     ? AppBar(
                         centerTitle: false,
                         automaticallyImplyLeading: false,
-                        title: const Text("Design Courses"),
+                        title: Text(AppLocalizations.of(context)!.title),
                         backgroundColor: Theme.of(context).backgroundColor,
                         surfaceTintColor: Theme.of(context).backgroundColor,
                         foregroundColor:
@@ -58,13 +60,13 @@ class Dashboard extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          "Choose Your",
+                                          AppLocalizations.of(context)!.choose_your,
                                           style: Theme.of(context)
                                               .textTheme
                                               .titleMedium,
                                         ),
                                         Text(
-                                          "Design Course",
+                                          AppLocalizations.of(context)!.design_course,
                                           style: Theme.of(context)
                                               .textTheme
                                               .titleLarge,
@@ -94,42 +96,6 @@ class Dashboard extends StatelessWidget {
   }
 }
 
-class DrawerView extends StatelessWidget {
-  const DrawerView({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      // Important: Remove any padding from the ListView.
-      padding: EdgeInsets.zero,
-      children: [
-        DrawerHeader(
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.tertiary,
-          ),
-          child: Align(
-              alignment: const Alignment(-1.0, 1.0),
-              child: Text(
-                "User",
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.onTertiary),
-              )),
-        ),
-        SelectionView(
-            options: [
-              Option("Dark", ThemeMode.dark),
-              Option("Light", ThemeMode.light),
-              Option("System", ThemeMode.system),
-            ],
-          selectedValue: ThemeMode.dark,
-          onSelect: (a,b){},
-        ),
-
-      ],
-    );
-  }
-}
 
 

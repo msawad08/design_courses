@@ -7,6 +7,8 @@ import 'package:design_course/widgets/SearchView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 import '../repositories/course_repository.dart';
 import '../utils/debounce.dart';
@@ -70,24 +72,24 @@ class _SearchViewControllerState extends State<SearchViewController> {
             editingController: editingController,
             onChange: debounce,
             onBack: onBack,
-            message: getMessage(state),
+            message: getMessage(context, state),
           );
         },
       ),
     );
   }
 
-  String getMessage(CourseState state) {
+  String getMessage(BuildContext context, CourseState state) {
 
     if(state.courses.isNotEmpty) {
       return "";
     }
     if(state.status == NetworkStatus.loading) {
-      return  "Loading...";
+      return  AppLocalizations.of(context)!.loading;
     }
     if(editingController.text.isEmpty) {
-      return "Enter Course Name To Search";
+      return AppLocalizations.of(context)!.enter_search_message;
     }
-    return "No Courses Found Matching The Search Query";
+    return AppLocalizations.of(context)!.no_matching_courses;
   }
 }

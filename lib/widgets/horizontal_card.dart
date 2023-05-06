@@ -65,7 +65,7 @@ class HorizontalCard extends StatelessWidget {
                                 MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "\$25",
+                                    course.price,
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyLarge
