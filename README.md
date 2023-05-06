@@ -1,16 +1,47 @@
-# design_course
+# Design Courses App
 
-Dashboard for design course
+A Flutter app for design courses using the bloc and MVC pattern, with routing handled by go_router library.
+
+## Features
+
+- Browse available design courses
+- View course details, including description, rating, duration, and price
+- Register for a course and view available seats
+- Filter for courses by category 
+- Search Course by name
+- English and Arabic Language Support
+- Responsive UI works on Both Mobile and Desktops
+
+## Known Issue
+
+- No Post Calls Integrated like Join Course/ Like etc 
+- Localisation Switch does not update the untill page switch
+- Minor UI issues with Responsivenes
+
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Clone the repository:
+```
+git clone https://github.com/<username>/design-courses-app.git
+```
 
-A few resources to get you started if this is your first Flutter project:
+2. Install dependencies:
+```
+flutter pub get
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+3. Run the app:
+```
+flutter run [web/android/ios]
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Dependencies
+
+- [flutter_bloc](https://pub.dev/packages/flutter_bloc)
+- [freezed](https://pub.dev/packages/freezed)
+- [intl](https://pub.dev/packages/intl)
+- [go_router](https://pub.dev/packages/go_router)
+
+
+
