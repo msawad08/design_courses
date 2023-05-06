@@ -9,9 +9,12 @@ import 'package:http/http.dart' as http;
 
 class CourseRepository extends BaseNetworkRepository {
   final http.Client _client = http.Client();
-  final String _baseUrl =
-      'https://my-json-server.typicode.com/msawad08/design_courses/courses';
+
+  String get _baseUrl => 'https://my-json-server.typicode.com/msawad08/design_courses/courses_$locale';
+
   List<Course> courses = [];
+
+  CourseRepository({required super.locale});
 
   Future<List<Course>?> fetchCourses() async {
     try{

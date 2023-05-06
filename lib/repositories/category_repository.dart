@@ -11,7 +11,9 @@ import 'package:http/http.dart' as http;
 class CategoryRepository extends BaseNetworkRepository {
   final http.Client _client = http.Client();
 
-  String get _baseUrl => 'https://my-json-server.typicode.com/msawad08/design_courses/courses';
+  CategoryRepository({required super.locale});
+
+  String get _baseUrl => 'https://my-json-server.typicode.com/msawad08/design_courses/courses_$locale';
   List<String> categories = [];
 
 
