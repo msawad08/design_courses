@@ -18,6 +18,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../repositories/course_repository.dart';
 
@@ -49,11 +50,11 @@ class _CourseDetailControllerState extends State<CourseDetailController> {
 
   @override
   Widget build(BuildContext context) {
+    final locale = AppLocalizations.of(context)!.localeName;
 
     return BlocProvider(
-
       create: (context) =>
-      CourseBloc(courseRepository: CourseRepository())..add(GetCourseByIdEvent(widget.id)),
+      CourseBloc(courseRepository: CourseRepository(locale: locale))..add(GetCourseByIdEvent(widget.id)),
       child: BlocConsumer<CourseBloc, CourseState>(
         listener: (context, state) {
           if (state.status == NetworkStatus.failed) {

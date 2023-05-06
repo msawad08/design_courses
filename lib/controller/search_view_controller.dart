@@ -53,8 +53,9 @@ class _SearchViewControllerState extends State<SearchViewController> {
 
   @override
   Widget build(BuildContext context) {
+    final locale=  AppLocalizations.of(context)!.localeName;
     return BlocProvider(
-      create: (context) => CourseBloc(courseRepository: CourseRepository()),
+      create: (context) => CourseBloc(courseRepository: CourseRepository(locale: locale)),
       child: BlocConsumer<CourseBloc, CourseState>(
         listener: (context, state) {
           if (state.status == NetworkStatus.failed) {

@@ -33,10 +33,12 @@ class _CategoryControllerState extends State<CategoryController> {
 
   @override
   Widget build(BuildContext context) {
+    final locale=  AppLocalizations.of(context)!.localeName;
+
     return BlocProvider(
       create: (context) => CategoryBloc(
-          courseRepository: CourseRepository(),
-          categoryRepository: CategoryRepository()),
+          courseRepository: CourseRepository( locale: locale),
+          categoryRepository: CategoryRepository(locale: locale)),
       child: BlocConsumer<CategoryBloc, CategoryState>(
         listener: (context, state) {
           if(state.status == NetworkStatus.failed){

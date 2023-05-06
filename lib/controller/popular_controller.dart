@@ -7,6 +7,8 @@ import 'package:design_course/widgets/popular_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 import '../repositories/course_repository.dart';
 
@@ -19,8 +21,9 @@ class PopularController extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = AppLocalizations.of(context)!.localeName;
     return BlocProvider(
-      create: (context) => CourseBloc(courseRepository: CourseRepository())
+      create: (context) => CourseBloc(courseRepository: CourseRepository(locale: locale))
         ..add(LoadPopularCoursesEvent()),
       child: BlocConsumer<CourseBloc, CourseState>(
         listener: (context, state) {

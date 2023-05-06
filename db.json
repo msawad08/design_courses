@@ -162,9 +162,9 @@
       "rating": 4.8,
       "time": "5 ساعات",
       "seatsAvailable": 15,
-      "price": "149.99 دولار",
+        "price": "$149.99",
       "noOfClasses": 10,
-      "category": "واجهات المستخدم / تجربة المستخدم",
+      "category": "UI/UX",
       "id" : 5
     },{
     "name": "التفكير التصميمي",
