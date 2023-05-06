@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AppState {
-  Course? get selectedCourse => throw _privateConstructorUsedError;
-  ThemeType get themeType => throw _privateConstructorUsedError;
+  ThemeMode get themeType => throw _privateConstructorUsedError;
+  String get locale => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -29,9 +29,7 @@ abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call({Course? selectedCourse, ThemeType themeType});
-
-  $CourseCopyWith<$Res>? get selectedCourse;
+  $Res call({ThemeMode themeType, String locale});
 }
 
 /// @nodoc
@@ -47,31 +45,19 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? selectedCourse = freezed,
     Object? themeType = null,
+    Object? locale = null,
   }) {
     return _then(_value.copyWith(
-      selectedCourse: freezed == selectedCourse
-          ? _value.selectedCourse
-          : selectedCourse // ignore: cast_nullable_to_non_nullable
-              as Course?,
       themeType: null == themeType
           ? _value.themeType
           : themeType // ignore: cast_nullable_to_non_nullable
-              as ThemeType,
+              as ThemeMode,
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CourseCopyWith<$Res>? get selectedCourse {
-    if (_value.selectedCourse == null) {
-      return null;
-    }
-
-    return $CourseCopyWith<$Res>(_value.selectedCourse!, (value) {
-      return _then(_value.copyWith(selectedCourse: value) as $Val);
-    });
   }
 }
 
@@ -82,10 +68,7 @@ abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
       __$$_AppStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Course? selectedCourse, ThemeType themeType});
-
-  @override
-  $CourseCopyWith<$Res>? get selectedCourse;
+  $Res call({ThemeMode themeType, String locale});
 }
 
 /// @nodoc
@@ -99,18 +82,18 @@ class __$$_AppStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? selectedCourse = freezed,
     Object? themeType = null,
+    Object? locale = null,
   }) {
     return _then(_$_AppState(
-      selectedCourse: freezed == selectedCourse
-          ? _value.selectedCourse
-          : selectedCourse // ignore: cast_nullable_to_non_nullable
-              as Course?,
       themeType: null == themeType
           ? _value.themeType
           : themeType // ignore: cast_nullable_to_non_nullable
-              as ThemeType,
+              as ThemeMode,
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -118,17 +101,18 @@ class __$$_AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppState with DiagnosticableTreeMixin implements _AppState {
-  const _$_AppState({this.selectedCourse, this.themeType = ThemeType.light});
+  const _$_AppState({this.themeType = ThemeMode.light, this.locale = "en"});
 
   @override
-  final Course? selectedCourse;
+  @JsonKey()
+  final ThemeMode themeType;
   @override
   @JsonKey()
-  final ThemeType themeType;
+  final String locale;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppState(selectedCourse: $selectedCourse, themeType: $themeType)';
+    return 'AppState(themeType: $themeType, locale: $locale)';
   }
 
   @override
@@ -136,8 +120,8 @@ class _$_AppState with DiagnosticableTreeMixin implements _AppState {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'AppState'))
-      ..add(DiagnosticsProperty('selectedCourse', selectedCourse))
-      ..add(DiagnosticsProperty('themeType', themeType));
+      ..add(DiagnosticsProperty('themeType', themeType))
+      ..add(DiagnosticsProperty('locale', locale));
   }
 
   @override
@@ -145,14 +129,13 @@ class _$_AppState with DiagnosticableTreeMixin implements _AppState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AppState &&
-            (identical(other.selectedCourse, selectedCourse) ||
-                other.selectedCourse == selectedCourse) &&
             (identical(other.themeType, themeType) ||
-                other.themeType == themeType));
+                other.themeType == themeType) &&
+            (identical(other.locale, locale) || other.locale == locale));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedCourse, themeType);
+  int get hashCode => Object.hash(runtimeType, themeType, locale);
 
   @JsonKey(ignore: true)
   @override
@@ -162,13 +145,13 @@ class _$_AppState with DiagnosticableTreeMixin implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState(
-      {final Course? selectedCourse, final ThemeType themeType}) = _$_AppState;
+  const factory _AppState({final ThemeMode themeType, final String locale}) =
+      _$_AppState;
 
   @override
-  Course? get selectedCourse;
+  ThemeMode get themeType;
   @override
-  ThemeType get themeType;
+  String get locale;
   @override
   @JsonKey(ignore: true)
   _$$_AppStateCopyWith<_$_AppState> get copyWith =>

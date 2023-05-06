@@ -31,9 +31,15 @@ class VerticalCard extends StatelessWidget {
             CourseCardTitle(course: course),
             CourseCardRating(course: course),
 
-            Image.asset(
-              "assets/images/img 1.jpg",
-              height: 80,
+            Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              clipBehavior: Clip.antiAlias,
+              child: Image.asset(
+                "assets/images/img 1.jpg",
+                height: 80,
+              ),
             )
           ],
         ),

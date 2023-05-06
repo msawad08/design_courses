@@ -72,7 +72,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
 
   _onChangeSelectedCategory(ChangeSelectedCategory event,
       Emitter<CategoryState> emit){
-    emit(state.copyWith(selectedCategory: event.category));
+    emit(state.copyWith(selectedCategory: event.category, courseState: const CourseState()));
     courseRepository.getCoursesOfCategory(event.category);
   }
 

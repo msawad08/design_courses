@@ -20,11 +20,15 @@ class LoadCoursesEvent extends CourseEvent {}
 
 class LoadPopularCoursesEvent extends CourseEvent {}
 
+class ResetCourses extends CourseEvent {}
+
+
 class SearchCoursesEvent extends CourseEvent {
   final String query;
 
   const SearchCoursesEvent(this.query);
 }
+
 
 class GetCourseByIdEvent extends CourseEvent {
   final int id;

@@ -28,6 +28,7 @@ mixin _$Course {
   String get price => throw _privateConstructorUsedError;
   int get noOfClasses => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +48,8 @@ abstract class $CourseCopyWith<$Res> {
       int seatsAvailable,
       String price,
       int noOfClasses,
-      String category});
+      String category,
+      int id});
 }
 
 /// @nodoc
@@ -71,6 +73,7 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
     Object? price = null,
     Object? noOfClasses = null,
     Object? category = null,
+    Object? id = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -105,6 +108,10 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -123,7 +130,8 @@ abstract class _$$_CourseCopyWith<$Res> implements $CourseCopyWith<$Res> {
       int seatsAvailable,
       String price,
       int noOfClasses,
-      String category});
+      String category,
+      int id});
 }
 
 /// @nodoc
@@ -144,6 +152,7 @@ class __$$_CourseCopyWithImpl<$Res>
     Object? price = null,
     Object? noOfClasses = null,
     Object? category = null,
+    Object? id = null,
   }) {
     return _then(_$_Course(
       name: null == name
@@ -178,6 +187,10 @@ class __$$_CourseCopyWithImpl<$Res>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -193,7 +206,8 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
       required this.seatsAvailable,
       required this.price,
       required this.noOfClasses,
-      required this.category});
+      required this.category,
+      required this.id});
 
   factory _$_Course.fromJson(Map<String, dynamic> json) =>
       _$$_CourseFromJson(json);
@@ -214,10 +228,12 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
   final int noOfClasses;
   @override
   final String category;
+  @override
+  final int id;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Course(name: $name, description: $description, rating: $rating, time: $time, seatsAvailable: $seatsAvailable, price: $price, noOfClasses: $noOfClasses, category: $category)';
+    return 'Course(name: $name, description: $description, rating: $rating, time: $time, seatsAvailable: $seatsAvailable, price: $price, noOfClasses: $noOfClasses, category: $category, id: $id)';
   }
 
   @override
@@ -232,7 +248,8 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
       ..add(DiagnosticsProperty('seatsAvailable', seatsAvailable))
       ..add(DiagnosticsProperty('price', price))
       ..add(DiagnosticsProperty('noOfClasses', noOfClasses))
-      ..add(DiagnosticsProperty('category', category));
+      ..add(DiagnosticsProperty('category', category))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
@@ -251,13 +268,14 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
             (identical(other.noOfClasses, noOfClasses) ||
                 other.noOfClasses == noOfClasses) &&
             (identical(other.category, category) ||
-                other.category == category));
+                other.category == category) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, description, rating, time,
-      seatsAvailable, price, noOfClasses, category);
+      seatsAvailable, price, noOfClasses, category, id);
 
   @JsonKey(ignore: true)
   @override
@@ -282,7 +300,8 @@ abstract class _Course implements Course {
       required final int seatsAvailable,
       required final String price,
       required final int noOfClasses,
-      required final String category}) = _$_Course;
+      required final String category,
+      required final int id}) = _$_Course;
 
   factory _Course.fromJson(Map<String, dynamic> json) = _$_Course.fromJson;
 
@@ -302,6 +321,8 @@ abstract class _Course implements Course {
   int get noOfClasses;
   @override
   String get category;
+  @override
+  int get id;
   @override
   @JsonKey(ignore: true)
   _$$_CourseCopyWith<_$_Course> get copyWith =>

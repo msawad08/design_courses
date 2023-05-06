@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:design_course/blocs/courses/course_event.dart';
@@ -7,28 +6,26 @@ import 'package:design_course/repositories/course_repository.dart';
 import 'package:design_course/utils/network_status.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
-
-
 class CourseBloc extends Bloc<CourseEvent, CourseState> {
   final CourseRepository courseRepository;
 
-  late StreamSubscription<NetworkStatus>
-  _networkStatusSubscription;
+  late StreamSubscription<NetworkStatus> _networkStatusSubscription;
 
   CourseBloc({
     required this.courseRepository,
-  })  :super(const CourseState())
-  {
+  }) : super(const CourseState()) {
     on<CourseChangeEvent>(_onCourseStatusChange);
+    on<ResetCourses>(_onResetCourse);
     on<LoadCoursesEvent>(_onLoadCourse);
     on<SearchCoursesEvent>(_onSearchCourse);
     on<GetCourseByIdEvent>(_onGetCourseById);
 
-
     on<LoadPopularCoursesEvent>(_onLoadPopularCourse);
     _networkStatusSubscription = courseRepository.status.listen(
-          (status) => add(CourseChangeEvent(status: status, error: courseRepository.errorMessage, courses: courseRepository.courses)),
+      (status) => add(CourseChangeEvent(
+          status: status,
+          error: courseRepository.errorMessage,
+          courses: courseRepository.courses)),
     );
   }
 
@@ -39,32 +36,33 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
   }
 
   _onCourseStatusChange(
-      CourseChangeEvent event,
-      Emitter<CourseState> emit,
-      ){
-          emit(CourseState(status: event.status, courses: event.courses, errorMessage: event.error));
-      }
+    CourseChangeEvent event,
+    Emitter<CourseState> emit,
+  ) {
+    emit(CourseState(
+        status: event.status,
+        courses: event.courses,
+        errorMessage: event.error));
+  }
 
+  _onResetCourse( event, Emitter<CourseState> emit) {
+    emit(const CourseState());
+  }
 
-  _onLoadCourse(LoadCoursesEvent event,
-      Emitter<CourseState> emit){
+  _onLoadCourse(LoadCoursesEvent event, Emitter<CourseState> emit) {
     courseRepository.getCourses();
   }
 
-  _onSearchCourse(SearchCoursesEvent event,
-      Emitter<CourseState> emit){
+  _onSearchCourse(SearchCoursesEvent event, Emitter<CourseState> emit) {
     courseRepository.searchCourses(event.query);
   }
 
-  _onGetCourseById(GetCourseByIdEvent event,
-      Emitter<CourseState> emit){
+  _onGetCourseById(GetCourseByIdEvent event, Emitter<CourseState> emit) {
     courseRepository.getCourseById(event.id);
   }
 
-  _onLoadPopularCourse(LoadPopularCoursesEvent event,
-      Emitter<CourseState> emit){
+  _onLoadPopularCourse(
+      LoadPopularCoursesEvent event, Emitter<CourseState> emit) {
     courseRepository.getPopularCourses();
   }
-
-
 }

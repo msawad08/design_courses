@@ -14,18 +14,24 @@ class CategoryRepository extends BaseNetworkRepository {
 
 
   Future<void> getCategories() async {
-    controller.add(NetworkStatus.loading);
-    final response = await _client.get(Uri.parse(_baseUrl));
-    if (response.statusCode == 200) {
-      controller.add(NetworkStatus.loaded);
-      final List<dynamic> jsonList = json.decode(response.body);
-    final courses = jsonList.map((json) => Course.fromJson(json)).toList();
-    categories = courses.map((course) => course.category).toSet().toList();
-    } else {
-      errorMessage = "Failed to load courses";
+    try{
+      controller.add(NetworkStatus.loading);
+      final response = await _client.get(Uri.parse(_baseUrl));
+      if (response.statusCode == 200) {
+        controller.add(NetworkStatus.loaded);
+        final List<dynamic> jsonList = json.decode(response.body);
+        final courses = jsonList.map((json) => Course.fromJson(json)).toList();
+        categories = courses.map((course) => course.category).toSet().toList();
+      } else {
+        errorMessage = "Failed to load course categories";
+        controller.add(NetworkStatus.failed);
+        // throw Exception('Failed to load courses');
+      }
+    }catch(err){
+      errorMessage = "Failed to load course categories";
       controller.add(NetworkStatus.failed);
-      // throw Exception('Failed to load courses');
     }
+
   }
 
 

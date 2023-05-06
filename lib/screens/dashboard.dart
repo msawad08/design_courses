@@ -1,6 +1,9 @@
 import 'package:design_course/controller/category_controller.dart';
+import 'package:design_course/controller/drawer_controller.dart';
 import 'package:design_course/controller/popular_controller.dart';
-import 'package:design_course/widgets/ProfileButton.dart';
+import 'package:design_course/controller/profile_button_controller.dart';
+import 'package:design_course/controller/search_input_controller.dart';
+import 'package:design_course/widgets/SelectionView.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
@@ -8,102 +11,39 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(
-    //   body: NestedScrollView(
-    //
-    //     headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-    //       return <Widget>[
-    //         SliverAppBar(
-    //             expandedHeight: 200.0,
-    //             collapsedHeight: kToolbarHeight,
-    //             floating: false,
-    //             pinned: true,
-    //             flexibleSpace: LayoutBuilder(
-    //               builder: (BuildContext context, BoxConstraints constraints) {
-    //
-    //                 return constraints.biggest.height == MediaQuery.of(context).viewPadding.top + kToolbarHeight ?
-    //                     AppBar(
-    //                       title: const Text("Design Course"),
-    //                     )
-    //                  :FlexibleSpaceBar(
-    //                     centerTitle: true,
-    //
-    //                     // title: const Text("Collapsing Toolbar",
-    //                     //     style: TextStyle(
-    //                     //       color: Colors.white,
-    //                     //       fontSize: 16.0,
-    //                     //     )),
-    //                     background: Column(
-    //                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    //                       children:  [
-    //                         Row(
-    //                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //                           children: [
-    //                             Column(
-    //                               children: const [
-    //                                 Text("Choose Your"),
-    //                                 Text("Design Course"),
-    //                               ],
-    //                             ),
-    //                             Image.asset("assets/images/profile.jpg", height: 30, )
-    //                           ],
-    //                         ),
-    //
-    //                         const TextField(
-    //                           decoration: InputDecoration(
-    //                             hintText: 'Search',
-    //                             prefixIcon: Icon(Icons.search),
-    //                             border: OutlineInputBorder(),
-    //                           ),
-    //                         ),
-    //                       ],
-    //                     ));
-    //               }
-    //             )),
-    //       ];
-    //     },
-    //     body: Column(
-    //       mainAxisSize: MainAxisSize.min,
-    //       crossAxisAlignment: CrossAxisAlignment.start,
-    //       children: const [
-    //         CategoryController(),
-    //         PopularView(),
-    //       ],
-    //     ),
-    //   ),
-    // );
-
     return Scaffold(
+      endDrawer: const Drawer(
+        child: DrawerViewController(),
+      ),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
               expandedHeight: 200.0,
               collapsedHeight: kToolbarHeight,
+              automaticallyImplyLeading: false,
               floating: false,
               pinned: true,
+              actions: <Widget>[
+                Container(),
+              ],
               backgroundColor: Theme.of(context).backgroundColor,
+              surfaceTintColor: Theme.of(context).backgroundColor,
               flexibleSpace: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
                 return constraints.biggest.height ==
                         MediaQuery.of(context).viewPadding.top + kToolbarHeight
                     ? AppBar(
                         centerTitle: false,
-
+                        automaticallyImplyLeading: false,
                         title: const Text("Design Courses"),
                         backgroundColor: Theme.of(context).backgroundColor,
-                        surfaceTintColor: null,
-                        actions: const [
-                          ProfileButton()
-                        ],
+                        surfaceTintColor: Theme.of(context).backgroundColor,
+                        foregroundColor:
+                            Theme.of(context).colorScheme.onPrimary,
+                        actions: const [ProfileButtonController()],
                       )
                     : FlexibleSpaceBar(
                         centerTitle: true,
-
-                        // title: const Text("Collapsing Toolbar",
-                        //     style: TextStyle(
-                        //       color: Colors.white,
-                        //       fontSize: 16.0,
-                        //     )),
                         background: Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Column(
@@ -111,39 +51,33 @@ class Dashboard extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Choose Your",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleMedium,
-                                      ),
-                                      Text(
-                                        "Design Course",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleLarge,
-                                      ),
-                                    ],
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Choose Your",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleMedium,
+                                        ),
+                                        Text(
+                                          "Design Course",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleLarge,
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  const ProfileButton()
+                                  const ProfileButtonController()
                                 ],
                               ),
                               const SizedBox(
                                 width: 250,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Search',
-                                    suffixIcon: Icon(Icons.search),
-                                    // border: OutlineInputBorder(),
-                                  ),
-                                ),
+                                child: SearchInputController(),
                               ),
                             ],
                           ),
@@ -159,4 +93,43 @@ class Dashboard extends StatelessWidget {
     );
   }
 }
+
+class DrawerView extends StatelessWidget {
+  const DrawerView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      // Important: Remove any padding from the ListView.
+      padding: EdgeInsets.zero,
+      children: [
+        DrawerHeader(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.tertiary,
+          ),
+          child: Align(
+              alignment: const Alignment(-1.0, 1.0),
+              child: Text(
+                "User",
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Theme.of(context).colorScheme.onTertiary),
+              )),
+        ),
+        SelectionView(
+            options: [
+              Option("Dark", ThemeMode.dark),
+              Option("Light", ThemeMode.light),
+              Option("System", ThemeMode.system),
+            ],
+          selectedValue: ThemeMode.dark,
+          onSelect: (a,b){},
+        ),
+
+      ],
+    );
+  }
+}
+
 

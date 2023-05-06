@@ -28,6 +28,7 @@ class CourseChangeEvent extends CategoryEvent {
 
 class LoadCategoryEvent extends CategoryEvent {}
 
+
 class ChangeSelectedCategory extends CategoryEvent {
   final String category;
 

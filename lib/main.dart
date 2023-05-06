@@ -1,6 +1,6 @@
 import 'package:design_course/blocs/app/app_bloc.dart';
 import 'package:design_course/screens/course_detail.dart';
-import 'package:design_course/themes/light_theme.dart';
+import 'package:design_course/themes/app_theme.dart';
 import 'package:design_course/utils/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +20,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         title: 'Flutter Demo',
         theme: lightTheme,
+        darkTheme: darkTheme,
+        themeMode: ThemeMode.dark,
         routerConfig: router,
 
 

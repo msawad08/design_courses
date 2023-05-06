@@ -11,6 +11,7 @@ import 'package:design_course/widgets/popular_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../repositories/course_repository.dart';
 
@@ -30,7 +31,7 @@ class CourseCardController extends StatefulWidget {
 
 class _CourseCardControllerState extends State<CourseCardController> {
   onSelect() =>
-    context.read<AppBloc>().add(SelectCourseEvent(widget.course));
+    context.push("/course/${widget.course.id}");
 
 
   @override

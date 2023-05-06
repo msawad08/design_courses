@@ -2,6 +2,7 @@ import 'package:design_course/blocs/courses/course_bloc.dart';
 import 'package:design_course/blocs/courses/course_event.dart';
 import 'package:design_course/blocs/courses/course_state.dart';
 import 'package:design_course/utils/network_status.dart';
+import 'package:design_course/utils/show_snackbar.dart';
 import 'package:design_course/widgets/popular_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -12,25 +13,30 @@ import '../repositories/course_repository.dart';
 class PopularController extends StatelessWidget {
   const PopularController({Key? key}) : super(key: key);
 
+  reloadData(BuildContext context) {
+    context.read<CourseBloc>().add(LoadPopularCoursesEvent());
+  }
+
   @override
   Widget build(BuildContext context) {
-    print("in popular controller");
     return BlocProvider(
-
-            create: (context) =>
-                CourseBloc(courseRepository: CourseRepository()),
+      create: (context) => CourseBloc(courseRepository: CourseRepository())
+        ..add(LoadPopularCoursesEvent()),
       child: BlocConsumer<CourseBloc, CourseState>(
-        listener: (context, state){
-            if(state.status == NetworkStatus.unknown){
-                context.read<CourseBloc>().add(LoadPopularCoursesEvent());
-            }
+        listener: (context, state) {
+          if (state.status == NetworkStatus.failed) {
+            showSnackBar(
+              context: context,
+              message: state.errorMessage,
+              onAction: () => reloadData(context),
+            );
+          }
         },
-          builder: (context, state) {
-        // if (state.status == NetworkStatus.loaded &&
-        //     state.categories.isNotEmpty && state.selectedCategory.isNotEmpty) {
-          return PopularView( courses: state.courses,);
-        return Container();
-      }
+        builder: (context, state) {
+          return PopularView(
+            courses: state.courses,
+          );
+        },
       ),
     );
   }

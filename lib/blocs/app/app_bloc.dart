@@ -8,13 +8,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState>{
   AppBloc(): super(const AppState()){
-    on<SelectCourseEvent>(_onSelectCourse);
+    on<ChangeAppTheme>(_onChangeTheme);
+    on<ChangeAppLanguage>(_onChangeLanguage);
+
   }
 
 
 
-  FutureOr<void> _onSelectCourse(SelectCourseEvent event, Emitter<AppState> emit) {
-    emit(state.copyWith(selectedCourse: event.course));
-    router.push("/course");
+  FutureOr<void> _onChangeTheme(ChangeAppTheme event, Emitter<AppState> emit) {
+    emit(state.copyWith(themeType: event.theme));
+  }
+
+  FutureOr<void> _onChangeLanguage(ChangeAppLanguage event, Emitter<AppState> emit) {
+    emit(state.copyWith(locale: event.value));
   }
 }
